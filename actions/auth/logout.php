@@ -1,5 +1,5 @@
 <?php
 
 Session::destroy();
-header('location:index.php');
+header('location:index.php?r=auth/login');
 die();

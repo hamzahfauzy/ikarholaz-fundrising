@@ -69,8 +69,9 @@
                                             <td><?=$data_value?></td>
                                             <?php endforeach ?>
                                             <td>
-                                                <a href="index.php?r=crud/edit&table=<?=$table?>&id=<?=$data->id?>" class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt"></i> Edit</a>
-                                                <a href="index.php?r=crud/delete&table=<?=$table?>&id=<?=$data->id?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                                <a href="index.php?r=donations/view&id=<?=$data->id?>" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a>
+                                                <a href="index.php?r=donations/edit&id=<?=$data->id?>" class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="index.php?r=donations/delete&id=<?=$data->id?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
                                         <?php endforeach ?>

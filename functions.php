@@ -135,6 +135,30 @@ function is_allowed($path, $user_id)
     return $ret;
 }
 
+function in_route($route, $collections)
+{
+    $ret = false;
+    foreach($collections as $collection)
+    {
+        if(endsWith($collection, '*'))
+        {
+            $route_path = str_replace('*','',$collection);
+            if(startWith($route, $route_path))
+            {
+                $ret = true;
+                break;
+            }
+        }
+        elseif($route == $collection)
+        {
+            $ret = true;
+            break;
+        }
+    }
+
+    return $ret;
+}
+
 function config($key = false)
 {
     global $config;

@@ -1,6 +1,7 @@
 <?php
 
 $route = get_route();
+$auth = auth();
 
 if(startWith($route,'app/db-')) return true;
 
@@ -23,8 +24,8 @@ if(!$installation && $route != "installation")
     die();
 }
 
-$auth = auth();
-if(!isset($auth->user) && !in_array($route, ['auth/login','installation']))
+$guarded_route = require 'guarded_route.php';
+if(!isset($auth->user) && in_route($route, $guarded_route))
 {
     header("location:index.php?r=auth/login");
     die();

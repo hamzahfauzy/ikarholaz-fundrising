@@ -69,6 +69,8 @@
 			height: 300
 		});
 
+		$('.datatable').dataTable();
+
 		Circles.create({
 			id:'circles-1',
 			radius:45,

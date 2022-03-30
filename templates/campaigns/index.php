@@ -70,9 +70,10 @@
                                             ?>
                                             <td><?=$data_value?></td>
                                             <?php endforeach ?>
-                                            <td>
-                                                <a href="index.php?r=crud/edit&table=<?=$table?>&id=<?=$data->id?>" class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt"></i> Edit</a>
-                                                <a href="index.php?r=crud/delete&table=<?=$table?>&id=<?=$data->id?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                            <td style="white-space:nowrap">
+                                                <a href="index.php?r=campaigns/view&id=<?=$data->id?>" class="btn btn-sm btn-success" title="Detail"><i class="fas fa-eye"></i></a>
+                                                <a href="index.php?r=campaigns/edit&id=<?=$data->id?>" class="btn btn-sm btn-warning" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="index.php?r=campaigns/delete&id=<?=$data->id?>" class="btn btn-sm btn-danger" title="Hapus"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
                                         <?php endforeach ?>
