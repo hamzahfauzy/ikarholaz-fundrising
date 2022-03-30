@@ -53,10 +53,12 @@ CREATE TABLE subjects (
 CREATE TABLE campaigns (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
+    summary VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
     date_start date NOT NULL,
     date_end date NOT NULL,
     amount_target DOUBLE NOT NULL,
+    pic_url VARCHAR(255) NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -71,9 +73,11 @@ CREATE TABLE campaign_amounts (
 CREATE TABLE donations (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
+    summary VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
     date_start date NULL,
     date_end date NULL,
+    pic_url VARCHAR(255) NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -96,4 +100,14 @@ CREATE TABLE transactions (
     pg_response TEXT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_transactions_subject_id FOREIGN KEY (subject_id) REFERENCES subjects(id) ON DELETE CASCADE
+);
+
+CREATE TABLE posts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NULL,
+    status VARCHAR(10) NOT NULL,
+    post_type VARCHAR(10) NOT NULL,
+    post_type_id INT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
