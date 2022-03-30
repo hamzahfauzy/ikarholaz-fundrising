@@ -53,8 +53,8 @@ CREATE TABLE subjects (
 CREATE TABLE campaigns (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
-    summary VARCHAR(255) NOT NULL,
-    description TEXT NOT NULL,
+    summary LONGTEXT NOT NULL,
+    description LONGTEXT NOT NULL,
     date_start date NOT NULL,
     date_end date NOT NULL,
     amount_target DOUBLE NOT NULL,
@@ -73,8 +73,8 @@ CREATE TABLE campaign_amounts (
 CREATE TABLE donations (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
-    summary VARCHAR(255) NOT NULL,
-    description TEXT NOT NULL,
+    summary LONGTEXT NOT NULL,
+    description LONGTEXT NOT NULL,
     date_start date NULL,
     date_end date NULL,
     pic_url VARCHAR(255) NULL,

@@ -8,6 +8,10 @@ return [
         'name' => [
             'label' => 'Nama'
         ],
+        'summary' => [
+            'type' => 'textarea',
+            'label' => 'Ringkasan',
+        ],
         'description' => [
             'type' => 'textarea',
             'label' => 'Deskripsi',
@@ -36,6 +40,10 @@ return [
     'donations' => [
         'name' => [
             'label' => 'Nama'
+        ],
+        'summary' => [
+            'type' => 'textarea',
+            'label' => 'Ringkasan',
         ],
         'description' => [
             'type' => 'textarea',

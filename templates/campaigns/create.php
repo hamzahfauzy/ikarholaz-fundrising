@@ -18,7 +18,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="" method="post">
+                            <form action="" method="post" enctype="multipart/form-data">
                                 <?php 
                                 foreach(config('fields')[$table] as $key => $field): 
                                     $label = $field;
@@ -32,10 +32,15 @@
                                         $type  = $field_data['type'];
                                     }
                                     $label = _ucwords($label);
+                                    $class = 'form-control';
+                                    if(in_array($label,['Deskripsi','Ringkasan']))
+                                    {
+                                        $class .= ' summernote';
+                                    }
                                 ?>
                                 <div class="form-group">
                                     <label for=""><?=$label?></label>
-                                    <?= Form::input($type, $table."[".$field."]", ['class'=>"form-control","placeholder"=>$label,"required"=>""]) ?>
+                                    <?= Form::input($type, $table."[".$field."]", ['class'=>$class,"placeholder"=>$label,"required"=>""]) ?>
                                 </div>
                                 <?php endforeach ?>
                                 <div class="form-group">

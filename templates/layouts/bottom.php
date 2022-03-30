@@ -39,6 +39,9 @@
 	<!-- Chart Circle -->
 	<script src="assets/js/plugin/chart-circle/circles.min.js"></script>
 
+	<!-- Summernote -->
+	<script src="assets/js/plugin/summernote/summernote-bs4.min.js"></script>
+
 	<!-- Datatables -->
 	<script src="assets/js/plugin/datatables/datatables.min.js"></script>
 
@@ -59,6 +62,13 @@
 	<script src="assets/js/setting-demo.js"></script>
 	<script src="assets/js/demo.js"></script>
 	<script>
+		$('.summernote').summernote({
+			placeholder: 'Konten disini ...',
+			fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+			tabsize: 2,
+			height: 300
+		});
+
 		Circles.create({
 			id:'circles-1',
 			radius:45,

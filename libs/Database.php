@@ -27,10 +27,17 @@ class Database
 
     function insert($table, $val)
     {
+        $conn = $this->connection;
         $this->table = $table;
         $this->query = "INSERT INTO $table";
         $fields = implode(',',array_keys($val));
-        $values = "'".implode("','",array_values($val))."'";
+        $values = array_values($val);
+        $values = array_map(function($value) use($conn){
+            $value = $conn->real_escape_string($value);
+            $value = htmlentities($value);
+            return $value;
+        }, $values);
+        $values = "'".implode("','",$values)."'";
         $this->query .= "($fields)VALUES($values)";
         return $this->exec('insert');
     }
@@ -199,6 +206,7 @@ class Database
             foreach($values as $key => $value)
             {
                 $value = $this->connection->real_escape_string($value);
+                $value = htmlentities($value);
                 if(in_array($value,$this->without_quote))
                 $string .= "$key=$value";
                 else

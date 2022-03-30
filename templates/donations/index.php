@@ -34,6 +34,7 @@
                                                     $label = $field['label'];
                                                 }
                                                 $label = _ucwords($label);
+                                                if(in_array($label, ['Ringkasan','Deskripsi'])) continue;
                                             ?>
                                             <th><?=$label?></th>
                                             <?php endforeach ?>
@@ -53,14 +54,17 @@
                                                 if(is_array($field))
                                                 {
                                                     $label = $field['label'];
-                                                    $data_value = Form::getData($field['type'],$data->{$key});
+                                                    $type  = $field['type']??'text';
+                                                    $data_value = in_array($key, ['summary','description']) ? html_entity_decode($data->{$key}) : $data->{$key};
+                                                    $data_value = Form::getData($type,$data_value);
                                                     $field = $key;
                                                 }
                                                 else
                                                 {
-                                                    $data_value = $data->{$field};
+                                                    $data_value = in_array($field, ['summary','description']) ? html_entity_decode($data->{$field}) : $data->{$field};
                                                 }
                                                 $label = _ucwords($label);
+                                                if(in_array($label, ['Ringkasan','Deskripsi'])) continue;
                                             ?>
                                             <td><?=$data_value?></td>
                                             <?php endforeach ?>
