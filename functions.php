@@ -454,3 +454,8 @@ function _ucwords($str)
 
     return ucwords($str);
 }
+
+function is_route($route)
+{
+    return get_route() == $route;
+}

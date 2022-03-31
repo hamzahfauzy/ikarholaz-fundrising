@@ -39,7 +39,7 @@ ul.ikf-navbar li a.nav-link.btn:hover {
     max-width: 1040px;
 }
 
-.content h1 {
+.content h1, .primary-color {
     color: #2166b0;
 }
 

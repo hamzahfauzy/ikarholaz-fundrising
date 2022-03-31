@@ -35,17 +35,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto ikf-navbar">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Beranda <span class="sr-only">(current)</span></a>
+                    <li class="nav-item <?= is_route('default/index') ? 'active' : '' ?>">
+                        <a class="nav-link" href="index.php">Beranda <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Kampanye</a>
+                    <li class="nav-item <?= is_route('default/campaigns') ? 'active' : '' ?>">
+                        <a class="nav-link" href="index.php?r=default/campaigns">Kampanye</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Donasi</a>
+                    <li class="nav-item <?= is_route('default/donations') ? 'active' : '' ?>">
+                        <a class="nav-link" href="index.php?r=default/donations">Donasi</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Tentang Kami</a>
+                    <li class="nav-item <?= is_route('default/about-us') ? 'active' : '' ?>">
+                        <a class="nav-link" href="index.php?r=default/about-us">Tentang Kami</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn btn-primary" href="index.php?r=auth/login"><i class="fas fa-fw fa-sign-in-alt"></i> Log In</a>
@@ -55,6 +55,6 @@
         </div>
     </nav>
 
-    <div class="container mb-4 pb-4">
+    <div class="container mb-4 pb-4" style="min-height:calc(100vh - 180px)">
     
 	
