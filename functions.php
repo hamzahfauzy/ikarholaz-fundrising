@@ -5,6 +5,8 @@ require '../libs/Form.php';
 require '../libs/ArrayHelper.php';
 require '../libs/Session.php';
 require '../libs/Database.php';
+require '../libs/Ipaymu.php';
+require '../libs/WaBlast.php';
 
 $config = require '../config/main.php';
 

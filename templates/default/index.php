@@ -26,7 +26,7 @@
                 <div class="card-footer">
                     <div class="row user-stats text-center">
                         <div class="col">
-                            <div class="number">Rp. 0</div>
+                        <div class="number">Rp. <?=number_format($campaign->total_transaction->total)?></div>
                             <div class="title">Terkumpul</div>
                         </div>
                         <div class="col">
@@ -60,14 +60,14 @@
                         <div class="name"><?=$donation->name?></div>
                         <div class="job"><?=html_entity_decode($donation->summary)?></div>
                         <div class="view-profile">
-                            <a href="#" class="btn btn-secondary btn-block">Lihat Detail Donasi</a>
+                        <a href="index.php?r=default/donation-detail&id=<?=$donation->id?>" class="btn btn-secondary btn-block">Lihat Detail Donasi</a>
                         </div>
                     </div>
                 </div>
                 <div class="card-footer">
                     <div class="row user-stats text-center">
                         <div class="col">
-                            <div class="number">Rp. 0</div>
+                        <div class="number">Rp. <?=number_format($donation->total_transaction->total)?></div>
                             <div class="title">Terkumpul</div>
                         </div>
                     </div>

@@ -91,13 +91,14 @@ CREATE TABLE donation_amounts (
 
 CREATE TABLE transactions (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    checkout_id INT NOT NULL,
     subject_id INT NOT NULL,
     destination_id INT NOT NULL,
     destination_type VARCHAR(10) NOT NULL,
     amount DOUBLE NOT NULL,
     status VARCHAR(10) NOT NULL,
-    pg_requests TEXT NULL,
-    pg_response TEXT NULL,
+    pg_requests LONGTEXT NULL,
+    pg_response LONGTEXT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_transactions_subject_id FOREIGN KEY (subject_id) REFERENCES subjects(id) ON DELETE CASCADE
 );

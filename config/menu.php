@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'dashboard' => 'default/index',
+    'dashboard' => 'default/dashboard',
     'subjek'    => 'subjects/index',
     'kampanye'  => 'campaigns/index',
     'donasi'    => 'donations/index',

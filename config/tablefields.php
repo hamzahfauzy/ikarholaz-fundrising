@@ -30,12 +30,30 @@ return [
         ]
     ],
     'subjects' => [
-        'name' => 'Nama',
-        'phone' => 'No. HP',
-        'email' => 'Email',
-        'is_anonim' => 'Anonim',
-        'notes' => 'Catatan',
-        'NRA' => 'NRA',
+        'name' => [
+            'label' => 'Nama',
+            'type' => 'text',
+        ],
+        'phone' => [
+            'label' => 'No. HP',
+            'type' => 'text',
+        ],
+        'email' => [
+            'label' => 'Email',
+            'type' => 'text',
+        ],
+        'is_anonim' => [
+            'label' => 'Anonim',
+            'type' => 'text',
+        ],
+        'notes' => [
+            'label' => 'Catatan',
+            'type' => 'text',
+        ],
+        'NRA' => [
+            'label' => 'NRA',
+            'type' => 'text',
+        ],
     ],
     'donations' => [
         'name' => [
@@ -49,13 +67,5 @@ return [
             'type' => 'textarea',
             'label' => 'Deskripsi',
         ],
-        'date_start' => [
-            'label' => 'Tanggal Mulai',
-            'type'  => 'date'
-        ],
-        'date_end' => [
-            'label' => 'Tanggal Selesai',
-            'type'  => 'date'
-        ]
     ]
 ];

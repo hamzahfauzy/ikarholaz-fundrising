@@ -3,6 +3,7 @@
 $menu = require '../config/menu.php';
 $icon_menu = require '../config/icon_menu.php';
 $tablefields = require '../config/tablefields.php';
+$payment_methods = require '../config/payment_methods.php';
 
 return [
     'base_url' => 'http://localhost:8080',
@@ -24,5 +25,11 @@ return [
         'menu' => $menu,
         'icon' => $icon_menu
     ],
-    'fields' => $tablefields
+    'ipaymu_virtual_account' => '0000002369378823',
+    'ipaymu_api_key' => 'SANDBOX8DA2AFE8-5D60-46F2-8C5E-A9DC94E699A4-20220331233450',
+    'ipaymu_api_url' => 'https://sandbox.ipaymu.com/api/v2/',
+    'WA_BLAST_URL' => 'https://blas.wacloud.id',
+    'WA_BLAST_DEVICE' => 'c1b35c6631030be16f2ec19d1fb5398f',
+    'fields' => $tablefields,
+    'payment_methods' => $payment_methods,
 ];

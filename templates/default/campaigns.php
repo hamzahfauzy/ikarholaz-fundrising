@@ -26,7 +26,7 @@
                 <div class="card-footer">
                     <div class="row user-stats text-center">
                         <div class="col">
-                            <div class="number">Rp. 0</div>
+                        <div class="number">Rp. <?=number_format($campaign->total_transaction->total)?></div>
                             <div class="title">Terkumpul</div>
                         </div>
                         <div class="col">

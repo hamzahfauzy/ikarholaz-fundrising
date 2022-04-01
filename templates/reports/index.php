@@ -53,6 +53,7 @@
                                             <th>Transaksi</th>
                                             <th>Dari</th>
                                             <th>Jumlah</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -65,6 +66,13 @@
                                             </td>
                                             <td><?=$transaction->subject->is_anonim ? 'Hamba Allah' : $transaction->subject->name?></td>
                                             <td><?=number_format($transaction->amount)?></td>
+                                            <td>
+                                                <?php if($transaction->status == 'checkout'): ?>
+                                                <span class="badge badge-warning"><?=$transaction->status?></span>
+                                                <?php elseif($transaction->status == 'confirm'): ?>
+                                                <span class="badge badge-success"><?=$transaction->status?></span>
+                                                <?php endif ?>
+                                            </td>
                                         </tr>
                                         <?php endforeach ?>
                                     </tbody>
