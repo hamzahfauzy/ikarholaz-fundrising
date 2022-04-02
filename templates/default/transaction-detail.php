@@ -1,7 +1,7 @@
 <?php load_templates('layouts/default-top-without-nav') ?>
 <div class="row mt-5 mx-auto rounded bg-light shadow-sm" style="max-width:500px;overflow:hidden;">
     <div class="col-12 col-md-3 p-0">
-        <img src="<?= $data->data->pic_url?>" alt="<?=$data->data->name?>" width="100%" height="100%" style="object-fit:cover" class="mb-2">
+        <img src="<?= base_url().'/'.$data->data->pic_url?>" alt="<?=$data->data->name?>" width="100%" height="100%" style="object-fit:cover" class="mb-2">
     </div>
     <div class="col-12 col-md-9">
         <div class="p-2">
@@ -48,6 +48,6 @@
         </div>
         <?php endif ?>
 
-        <a href="index.php?r=default/<?=$data->destination_type?>" class="btn btn-block btn-warning">Kembali</a>
+        <a href="<?=routeTo('default/'.$data->destination_type,[],true)?>" class="btn btn-block btn-warning">Kembali</a>
     </div>
 </div>

@@ -16,7 +16,7 @@ if(request() == 'POST')
     if($user)
     {
         Session::set(['user_id'=>$user->id]);
-        header('location:index.php?r=default/dashboard');
+        header('location:'.routeTo().'default/dashboard');
         die();
     }
 

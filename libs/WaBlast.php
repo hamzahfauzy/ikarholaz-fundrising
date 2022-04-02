@@ -8,9 +8,7 @@ class WaBlast
         $curl = curl_init();
 
         if($to[0] == "0")
-            $to = substr($to,1);
-        elseif($to[0] == "+")
-            $to = substr($to,3);
+            $to = "+62".substr($to,1);
         
         $postfields = [
             'device_id' => config('WA_BLAST_DEVICE'),

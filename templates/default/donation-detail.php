@@ -1,7 +1,7 @@
 <?php load_templates('layouts/default-top') ?>
     <div class="row mt-5">
         <div class="col-12 col-md-8">
-            <img src="<?= $donation->pic_url?>" alt="<?=$donation->name?>" width="100%" class="mb-2">
+            <img src="<?= base_url().'/'.$donation->pic_url?>" alt="<?=$donation->name?>" width="100%" class="mb-2">
             <div class="py-3">
                 <?= html_entity_decode($donation->summary) ?>
             </div>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <a href="index.php?r=default/checkout&type=donations&id=<?=$donation->id?>" class="btn btn-primary btn-block">JOIN PROGRAM</a>
+                            <a href="<?=routeTo('default/checkout',['type'=>'donations','id'=>$donation->id],true)?>" class="btn btn-primary btn-block">JOIN PROGRAM</a>
                         </div>
                     </div>
                 </div>

@@ -3,7 +3,7 @@
 <form action="" method="post" onsubmit="return false;" id="checkoutform">
     <div class="row mt-5 mx-auto rounded bg-light shadow-sm" style="max-width:500px;overflow:hidden;">
         <div class="col-12 col-md-3 p-0">
-            <img src="<?= $data->pic_url?>" alt="<?=$data->name?>" width="100%" height="100%" style="object-fit:cover" class="mb-2">
+            <img src="<?= base_url().'/'.$data->pic_url?>" alt="<?=$data->name?>" width="100%" height="100%" style="object-fit:cover" class="mb-2">
         </div>
         <div class="col-12 col-md-9">
             <div class="p-2">
@@ -51,7 +51,7 @@
                 </div>
             </div>
             <div class="form-group p-0 mb-3">
-                <input type="number" name="subjects[phone]" class="form-control" placeholder="No. Handphone" required>
+                <input type="number" name="subjects[phone]" class="form-control" placeholder="No. WA, Format : 081234xxxxx" required>
             </div>
             <div class="form-group p-0 mb-3">
                 <input type="email" name="subjects[email]" class="form-control" placeholder="Email" required>
@@ -85,7 +85,7 @@
         <input type="hidden" name="transactions[pg_requests][payment_method]" id="payment_method">
         <input type="hidden" name="transactions[pg_requests][payment_channel]" id="payment_channel">
         <button class="btn btn-primary btn-block" id="submit-btn" onclick="doSubmit()">LANJUTKAN PEMBAYARAN</button>
-        <a href="index.php?r=default/<?=$rel?>-detail&id=<?=$data->id?>" class="btn btn-warning btn-block">KEMBALI</a>
+        <a href="<?=routeTo()?>default/<?=$rel?>-detail&id=<?=$data->id?>" class="btn btn-warning btn-block">KEMBALI</a>
     </div>
 </form>
 <script>

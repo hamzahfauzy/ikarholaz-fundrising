@@ -19,7 +19,7 @@ if(request() == 'POST')
     $db->insert($table,$_POST[$table]);
 
     set_flash_msg(['success'=>'Donasi berhasil ditambahkan']);
-    header('location:index.php?r='.$table.'/index');
+    header('location:'.routeTo().''.$table.'/index');
 }
 
 return compact('table');

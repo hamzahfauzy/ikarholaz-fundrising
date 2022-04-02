@@ -8,7 +8,7 @@
                         <h5 class="text-white op-7 mb-2">Memanajemen data pengguna</h5>
                     </div>
                     <div class="ml-md-auto py-2 py-md-0">
-                        <a href="index.php?r=users/index" class="btn btn-warning btn-round">Kembali</a>
+                        <a href="<?=routeTo()?>users/index" class="btn btn-warning btn-round">Kembali</a>
                     </div>
                 </div>
             </div>
@@ -63,10 +63,10 @@
                                                 <?=$index+1?>
                                             </td>
                                             <td>
-                                                <a href="index.php?r=roles/view&id=<?=$role->role_id?>"><?=$role->name?></a>
+                                                <a href="<?=routeTo()?>roles/view&id=<?=$role->role_id?>"><?=$role->name?></a>
                                             </td>
                                             <td>
-                                                <a href="index.php?r=user-roles/delete&id=<?=$role->id?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                                <a href="<?=routeTo()?>user-roles/delete&id=<?=$role->id?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Hapus</a>
                                             </td>
                                         </tr>
                                         <?php endforeach ?>

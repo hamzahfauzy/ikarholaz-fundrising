@@ -8,7 +8,7 @@
                         <h5 class="text-white op-7 mb-2">Memanajemen data Kampanye</h5>
                     </div>
                     <div class="ml-md-auto py-2 py-md-0">
-                        <a href="index.php?r=campaigns/create" class="btn btn-secondary btn-round">Buat Kampanye</a>
+                        <a href="<?=routeTo()?>campaigns/create" class="btn btn-secondary btn-round">Buat Kampanye</a>
                     </div>
                 </div>
             </div>
@@ -71,9 +71,9 @@
                                             <td><?=$data_value?></td>
                                             <?php endforeach ?>
                                             <td style="white-space:nowrap">
-                                                <a href="index.php?r=campaigns/view&id=<?=$data->id?>" class="btn btn-sm btn-success" title="Detail"><i class="fas fa-eye"></i></a>
-                                                <a href="index.php?r=campaigns/edit&id=<?=$data->id?>" class="btn btn-sm btn-warning" title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                                                <a href="index.php?r=campaigns/delete&id=<?=$data->id?>" class="btn btn-sm btn-danger" title="Hapus"><i class="fas fa-trash"></i></a>
+                                                <a href="<?=routeTo()?>campaigns/view&id=<?=$data->id?>" class="btn btn-sm btn-success" title="Detail"><i class="fas fa-eye"></i></a>
+                                                <a href="<?=routeTo()?>campaigns/edit&id=<?=$data->id?>" class="btn btn-sm btn-warning" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="<?=routeTo()?>campaigns/delete&id=<?=$data->id?>" class="btn btn-sm btn-danger" title="Hapus"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
                                         <?php endforeach ?>

@@ -16,7 +16,7 @@ if(request() == 'POST')
     {
         $db->insert('campaign_amounts', $_POST['campaign_amounts']);
         set_flash_msg(['success'=>'Nominal berhasil ditambahkan']);
-        header('location:index.php?r='.$table.'/view&id='.$id);
+        header('location:'.routeTo().''.$table.'/view&id='.$id);
     }
 }
 

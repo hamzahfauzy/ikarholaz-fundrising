@@ -8,7 +8,7 @@
                         <h5 class="text-white op-7 mb-2">Memanajemen data <?=_ucwords($table)?></h5>
                     </div>
                     <div class="ml-md-auto py-2 py-md-0">
-                        <a href="index.php?r=crud/index&table=<?=$table?>" class="btn btn-warning btn-round">Kembali</a>
+                        <a href="<?=routeTo()?>crud/index&table=<?=$table?>" class="btn btn-warning btn-round">Kembali</a>
                     </div>
                 </div>
             </div>

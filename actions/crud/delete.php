@@ -9,5 +9,5 @@ $db->delete($table,[
 ]);
 
 set_flash_msg(['success'=>$table.' berhasil dihapus']);
-header('location:index.php?r=crud/index&table='.$table);
+header('location:'.routeTo().'crud/index&table='.$table);
 die();

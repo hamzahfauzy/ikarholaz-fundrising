@@ -15,7 +15,7 @@ if(request() == 'POST')
     ]);
 
     set_flash_msg(['success'=>$table.' berhasil diupdate']);
-    header('location:index.php?r=crud/index&table='.$table);
+    header('location:'.routeTo().'crud/index&table='.$table);
 }
 
 return [

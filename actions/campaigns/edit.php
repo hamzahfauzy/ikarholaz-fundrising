@@ -24,7 +24,7 @@ if(request() == 'POST')
     ]);
 
     set_flash_msg(['success'=>'Kampanye berhasil diupdate']);
-    header('location:index.php?r='.$table.'/index');
+    header('location:'.routeTo().''.$table.'/index');
 }
 
 return [

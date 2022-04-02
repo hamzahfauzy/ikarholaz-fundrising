@@ -9,5 +9,5 @@ $db->delete($table,[
 ]);
 
 set_flash_msg(['success'=>'Donasi berhasil dihapus']);
-header('location:index.php?r='.$table.'/index');
+header('location:'.routeTo().''.$table.'/index');
 die();

@@ -27,24 +27,25 @@ if(request() == 'POST')
     ]);
 
     $subject = $db->insert('subjects',$_POST['subjects']);
+    $pg_requests = $_POST['transactions']['pg_requests'];
     $_POST['transactions']['checkout_id'] = $payment->Data->TransactionId;
     $_POST['transactions']['subject_id'] = $subject->id;
     $_POST['transactions']['destination_type'] = $type;
     $_POST['transactions']['destination_id'] = $id;
     $_POST['transactions']['status'] = 'checkout';
-    $_POST['transactions']['pg_requests'] = serialize($_POST['transactions']['pg_requests']);
+    $_POST['transactions']['pg_requests'] = serialize($pg_requests);
     $_POST['transactions']['pg_response'] = serialize($payment);
     $transaction = $db->insert('transactions',$_POST['transactions']);
 
     // print_r($payment);
 
-    $detail_url = 'index.php?r=default/transaction-detail&id='.$transaction->id;
+    $detail_url = routeTo('default/transaction-detail',['id'=>$transaction->id],true);
     $message = '*IKARHOLAZ - GALANG DANA*
 -Notifikasi Tagihan Pembayaran kode *#'.$payment->Data->TransactionId.'*-
 
 Yth, '.$_POST['subjects']['name'].'
 
-Terima kasih sudah berpartisipasi untuk program *"'.$data->name.'"* pada tanggal *'.date('d-m-Y H:i').'* dengan menggunakan metode pembayaran *'.$_POST['transactions']['pg_requests']['payment_method'].'*. Silahkan klik link dibawah ini untuk menyelesaikan pembayaran:
+Terima kasih sudah berpartisipasi untuk program *"'.$data->name.'"* pada tanggal *'.date('d-m-Y H:i').'* dengan menggunakan metode pembayaran *'.$pg_requests['payment_method'].'*. Silahkan klik link dibawah ini untuk menyelesaikan pembayaran:
 
 '.$detail_url.'
 

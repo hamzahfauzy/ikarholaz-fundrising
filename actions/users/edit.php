@@ -18,7 +18,7 @@ if(request() == 'POST')
     ]);
 
     set_flash_msg(['success'=>'Pengguna berhasil diupdate']);
-    header('location:index.php?r=users/index');
+    header('location:'.routeTo().'users/index');
 }
 
 return [

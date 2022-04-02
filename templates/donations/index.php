@@ -8,7 +8,7 @@
                         <h5 class="text-white op-7 mb-2">Memanajemen data Donasi</h5>
                     </div>
                     <div class="ml-md-auto py-2 py-md-0">
-                        <a href="index.php?r=donations/create" class="btn btn-secondary btn-round">Buat Donasi</a>
+                        <a href="<?=routeTo()?>donations/create" class="btn btn-secondary btn-round">Buat Donasi</a>
                     </div>
                 </div>
             </div>
@@ -69,9 +69,9 @@
                                             <td><?=$data_value?></td>
                                             <?php endforeach ?>
                                             <td>
-                                                <a href="index.php?r=donations/view&id=<?=$data->id?>" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a>
-                                                <a href="index.php?r=donations/edit&id=<?=$data->id?>" class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt"></i></a>
-                                                <a href="index.php?r=donations/delete&id=<?=$data->id?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                                <a href="<?=routeTo()?>donations/view&id=<?=$data->id?>" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a>
+                                                <a href="<?=routeTo()?>donations/edit&id=<?=$data->id?>" class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="<?=routeTo()?>donations/delete&id=<?=$data->id?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
                                         <?php endforeach ?>

@@ -14,7 +14,7 @@ if(request() == 'POST')
     ]);
 
     set_flash_msg(['success'=>'Role berhasil diupdate']);
-    header('location:index.php?r=roles/index');
+    header('location:'.routeTo().'roles/index');
 }
 
 return [
