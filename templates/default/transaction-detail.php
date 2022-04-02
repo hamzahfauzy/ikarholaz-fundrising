@@ -20,7 +20,13 @@
 
         <div class="form-group p-0 mb-3">
             <label for="">Nomor Pembayaran</label>
+            <?php if($data->pg->Data->Channel == 'QRIS'): ?>
+            <p class="text-center">
+                <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?=$data->pg->Data->PaymentNo?>&choe=UTF-8" title="QRIS" />
+            </p>
+            <?php else: ?>
             <p><?=$data->pg->Data->PaymentNo?></p>
+            <?php endif ?>
         </div>
         <div class="form-group p-0 mb-3">
             <label for="">Nama Pembayaran</label>
