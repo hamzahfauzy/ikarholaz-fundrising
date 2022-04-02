@@ -17,6 +17,8 @@ $transactions = $db->all('transactions',[
 $transactions = array_map(function($transaction) use ($db){
     $transaction->subject = $db->single('subjects',[
         'id' => $transaction->subject_id
+    ],[
+        'id' => 'DESC'
     ]);
     return $transaction;
 }, $transactions);
@@ -25,6 +27,8 @@ $campaign->transactions = $transactions;
 $campaign->posts = $db->all('posts',[
     'post_type'    => 'campaigns',
     'post_type_id' => $id,
+],[
+    'id' => 'DESC'
 ]);
 
 $db->query = "SELECT SUM(amount) as total FROM transactions WHERE destination_type = 'campaigns' AND destination_id = $id AND status = 'confirm'";
