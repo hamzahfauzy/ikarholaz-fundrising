@@ -6,7 +6,7 @@
     <div class="col-12 col-md-9">
         <div class="p-2">
             <i><b><?= $data->destination_type == 'campaigns' ? 'Kampanye' : 'Donasi' ?></b></i><br>
-            <small>Terima kasih telah berdonasi untuk</small><br>
+            <small>Terima kasih telah berkontribusi untuk</small><br>
             <h2 class="primary-color"><?= $data->data->name ?></h2>
         </div>
     </div>

@@ -43,7 +43,7 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <a href="index.php?r=default/checkout&type=campaigns&id=<?=$campaign->id?>" class="btn btn-primary btn-block">JADILAH DONATUR</a>
+                            <a href="index.php?r=default/checkout&type=campaigns&id=<?=$campaign->id?>" class="btn btn-primary btn-block">JOIN PROGRAM</a>
                         </div>
                     </div>
                 </div>
