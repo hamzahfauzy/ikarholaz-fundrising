@@ -1,10 +1,7 @@
 Options +FollowSymLinks
 RewriteEngine On
 
-RewriteRule ^campaigns$ ./index.php?r=default/campaigns
-RewriteRule ^campaigns/detail/([0-9]*)$ ./index.php?r=default/campaign-detail&id=$1
-RewriteRule ^donations$ ./index.php?r=default/donations&id=$1
-RewriteRule ^donation/detail/([0-9]*)$ ./index.php?r=default/donation-detail
-RewriteRule ^checkout/([0-9]*)/([a-z]*)$ ./index.php?r=default/checkout&id=$1&type=$2
-RewriteRule ^transaction/([0-9]*)$ ./index.php?r=default/transaction-detail&id=$1
-RewriteRule ^(.*)$ index.php?r=$1
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+RewriteRule ^.*$ ./index.php
