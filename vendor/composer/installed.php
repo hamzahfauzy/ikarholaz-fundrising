@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '33c5f85cc68c61d5c1a83f40966f31c985fe1f9d',
+        'reference' => 'b4ca14adcd3dc5da33f91a17fc5c52e5b9606f1f',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '33c5f85cc68c61d5c1a83f40966f31c985fe1f9d',
+            'reference' => 'b4ca14adcd3dc5da33f91a17fc5c52e5b9606f1f',
             'dev_requirement' => false,
         ),
         'spipu/html2pdf' => array(
