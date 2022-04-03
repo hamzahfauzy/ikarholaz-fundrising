@@ -84,7 +84,7 @@
         <input type="hidden" name="transactions[pg_requests][payment_method]" id="payment_method">
         <input type="hidden" name="transactions[pg_requests][payment_channel]" id="payment_channel">
         <button class="btn btn-primary btn-block" id="submit-btn" onclick="doSubmit()">LANJUTKAN PEMBAYARAN</button>
-        <a href="<?=routeTo()?>default/<?=$rel?>-detail&id=<?=$data->id?>" class="btn btn-warning btn-block">KEMBALI</a>
+        <a href="<?=routeTo('default/'.$rel.'-detail',['id'=>$data->id])?>" class="btn btn-warning btn-block">KEMBALI</a>
     </div>
 </form>
 <script>
