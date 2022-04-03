@@ -12,13 +12,13 @@ $transactions = $db->all('transactions',[
     'destination_type' => 'campaigns',
     'destination_id'   => $id,
     'status'           => 'confirm'
+],[
+    'id' => 'DESC'
 ]);
 
 $transactions = array_map(function($transaction) use ($db){
     $transaction->subject = $db->single('subjects',[
         'id' => $transaction->subject_id
-    ],[
-        'id' => 'DESC'
     ]);
     return $transaction;
 }, $transactions);
