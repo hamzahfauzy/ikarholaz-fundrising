@@ -26,7 +26,7 @@ if(request() == 'POST')
             'checkout_id' => $_POST['trx_id']
         ]);
 
-        $detail_url = routeTo('default/transaction-detail',['id'=>$data->id],true);
+        $detail_url = routeTo('default/transaction-detail',['id'=>$data->id,'type'=>'download'],true);
         $message = '*IKARHOLAZ - GALANG DANA*
 -Notifikasi Pembayaran kode *#'.$data->pg->Data->TransactionId.'* Berhasil-
 

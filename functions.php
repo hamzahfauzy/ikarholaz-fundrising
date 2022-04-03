@@ -7,6 +7,7 @@ require '../libs/Session.php';
 require '../libs/Database.php';
 require '../libs/Ipaymu.php';
 require '../libs/WaBlast.php';
+require '../vendor/autoload.php';
 
 $config = require '../config/main.php';
 

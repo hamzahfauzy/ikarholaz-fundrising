@@ -8,6 +8,10 @@ $data = $db->single('transactions',[
     'id' => $id
 ]);
 
+$data->subject = $db->single('subjects',[
+    'id' => $data->subject_id
+]);
+
 $data->pg = unserialize(html_entity_decode($data->pg_response));
 
 $data->data = $db->single($data->destination_type,[
