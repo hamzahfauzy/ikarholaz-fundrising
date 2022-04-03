@@ -26,8 +26,12 @@
                 <tr>
                     <td>Nomor Pembayaran</td>
                     <td>: 
-                        <?php if($data->pg->Data->Channel == 'QRIS') : ?>
-                            <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?=$data->pg->Data->PaymentNo?>&choe=UTF-8" title="QRIS" />
+                        <?php 
+                        if($data->pg->Data->Channel == 'QRIS') : 
+                            $filename = 'uploads/qr/'.$data->checkout_id.'.png';
+                            file_put_contents($filename,file_get_contents('https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl='.$data->pg->Data->PaymentNo.'&choe=UTF-8'));
+                        ?>
+                            <img src="./<?=$filename?>" title="QRIS" />
                         <?php else: ?>
                             <?=$data->pg->Data->PaymentNo?>
                         <?php endif ?>
