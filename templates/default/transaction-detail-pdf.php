@@ -28,18 +28,8 @@
                     <td>: 
                         <?php 
                         if($data->pg->Data->Channel == 'QRIS') : 
-                            // $filename = 'uploads/qr/'.$data->checkout_id.'.png';
-                            // file_put_contents($filename,file_get_contents('https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl='.$data->pg->Data->PaymentNo.'&choe=UTF-8'));
-                            $context = 
-                                array("http"=>
-                                    array(
-                                        'verify_peer'=>false,
-                                        'verify_peer_name'=>false,
-                                )
-                            );
-                            $context = stream_context_create($context);
-                            $url = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl='.$data->pg->Data->PaymentNo.'&choe=UTF-8';
-                            $data = file_get_contents($url,false,$context);
+                            $url = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl='.urlencode($data->pg->Data->PaymentNo).'&choe=UTF-8';
+                            $data = file_get_contents($url);
                             $base64 = 'data:image/png;base64,' . base64_encode($data);
                         ?>
                             <img src="<?=$base64?>" title="QRIS" />
