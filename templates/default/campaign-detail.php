@@ -43,7 +43,7 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <a href="<?=routeTo('default/checkout',['type'=>'campaigns','id'=>$campaign->id],true)?>" class="btn btn-primary btn-block">JOIN PROGRAM</a>
+                            <a href="<?=routeTo('default/checkout',['type'=>'campaigns','id'=>$campaign->id],true)?>" class="btn btn-primary btn-block">DONASI SEKARANG</a>
                         </div>
                     </div>
                 </div>

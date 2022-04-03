@@ -2,7 +2,7 @@
     <footer class="footer mt-4 pt-4">
         <div class="container-fluid">
             <div class="copyright mx-auto">
-                Ikarholaz Fundrising . Copyright &copy; 2022
+                Sistem Informasi Rholaz (SIR) © 2022
             </div>				
         </div>
     </footer>
