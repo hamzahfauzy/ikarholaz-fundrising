@@ -40,12 +40,12 @@ if(request() == 'POST')
     // print_r($payment);
 
     $detail_url = routeTo('default/transaction-detail',['id'=>$transaction->id],true);
-    $message = '*IKARHOLAZ - GALANG DANA*
+    $message = '*IKARHOLAZ - FUNDRAISING*
 -Notifikasi Tagihan Pembayaran kode *#'.$payment->Data->TransactionId.'*-
 
-Yth, '.$_POST['subjects']['name'].'
+Hai kak '.$_POST['subjects']['name'].'
 
-Terima kasih sudah berpartisipasi untuk program *"'.$data->name.'"* pada tanggal *'.date('d-m-Y H:i').'* dengan menggunakan metode pembayaran *'.$pg_requests['payment_method'].'*. Silahkan klik link dibawah ini untuk menyelesaikan pembayaran:
+Terima kasih sudah berpartisipasi untuk program *"'.$data->name.'"* pada tanggal *'.date('d-m-Y H:i').'* dengan menggunakan metode pembayaran *'.$pg_requests['payment_method'].' - '.$pg_requests['payment_channel'].'*. Silahkan klik link dibawah ini untuk menyelesaikan pembayaran:
 
 '.$detail_url.'
 
@@ -56,10 +56,10 @@ _Kami berharap Anda dapat menyelesaikan pembayaran sebelum *'.$payment->Data->Ex
 
 _Keterangan:_
 1. Jika link tidak muncul harap simpan dulu nomor pengirim ke daftar kontak Anda (kebijakan security Whatsapp)
-2. Update penerimaan dan penggunaan donasi dapat dilihat di aplikasi galang dana IKARHOLAZ menu LAPORAN.
+2. Update penerimaan dan penggunaan donasi dapat dilihat di aplikasi galang dana IKARHOLAZ FUNDRAISING menu LAPORAN.
 
-Hormat kami,
-*IKARHOLAZ*
+Terima kasih,
+*IKARHOLAZ FUNDRAISING*
 
 Info ini hanya sebagai pemberitahuan. Mohon jangan di-reply dan abaikan jika sudah membayar. Jika ada pertanyaan silakan hubungi kami langsung di inbox@ikarholaz.com atau di +62 838-0661-1212
 ';
