@@ -33,7 +33,7 @@
                         </td>
                         <td><?=number_format($amount->amount)?></td>
                         <td>
-                            <a href="<?=routeTo()?>campaign-amounts/delete&id=<?=$amount->id?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Hapus</a>
+                            <a href="<?=routeTo()?>campaigns/delete-amount&id=<?=$amount->id?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Hapus</a>
                         </td>
                     </tr>
                     <?php endforeach ?>
