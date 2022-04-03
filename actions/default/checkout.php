@@ -52,8 +52,7 @@ Terima kasih sudah berpartisipasi untuk program *"'.$data->name.'"* pada tanggal
 _Total Pembayaran_ *'.number_format($_POST['transactions']['amount']).'*
 
 _Jangan lewatkan kesempatan Anda menjadi #OrangBaik._
-_Kami berharap Anda dapat menyelesaikan pembayaran sebelum
-*'.$payment->Data->Expired.'*_
+_Kami berharap Anda dapat menyelesaikan pembayaran sebelum *'.$payment->Data->Expired.'*_
 
 _Keterangan:_
 1. Jika link tidak muncul harap simpan dulu nomor pengirim ke daftar kontak Anda (kebijakan security Whatsapp)
