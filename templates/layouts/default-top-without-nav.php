@@ -7,7 +7,7 @@
 	<link rel="icon" href="<?=base_url()?>/assets/img/main-logo.png" type="image/x-icon"/>
 
 	<!-- Fonts and icons -->
-	<script src="assets/js/plugin/webfont/webfont.min.js"></script>
+	<script src="<?=base_url()?>/assets/js/plugin/webfont/webfont.min.js"></script>
 	<script>
 		WebFont.load({
 			google: {"families":["Lato:300,400,700,900"]},

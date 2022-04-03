@@ -42,10 +42,9 @@
 
             <div class="form-group p-0 mb-3">
                 <input type="text" name="subjects[name]" class="form-control mb-2" placeholder="Nama Lengkap" required>
-                <div class="form-inline">
-                    <input type="checkbox" id="is_anonim" name="subjects[is_anonim]" value="1" class="form-control">
-                    &nbsp;
-                    <label for="is_anonim">
+                <div class="d-flex align-items-center">
+                    <input type="checkbox" id="is_anonim" name="subjects[is_anonim]" value="1" class="form-control" style="width:auto;margin-right:10px">
+                    <label for="is_anonim" style="margin:0">
                         Tampilkan sebagai hamba Allah
                     </label>
                 </div>
