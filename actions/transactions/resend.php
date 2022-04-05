@@ -18,7 +18,7 @@ $data->data = $db->single($data->destination_type,[
 
 $detail_url = routeTo('default/transaction-detail',['id'=>$data->id,'type'=>'download'],true);
 $message = '*IKARHOLAZ - FUNDRAISING*
--Notifikasi Pembayaran kode *#'.$data->pg->Data->TransactionId.'* Berhasil-
+_Notifikasi Pembayaran SUKSES. Kode *#'.$data->pg->Data->TransactionId.'*_
 
 Hai kak '.$data->subject->name.'
 
@@ -34,7 +34,7 @@ Terima kasih,
 _Jika ada pertanyaan silakan hubungi langsung di inbox@ikarholaz.com atau di +62 838-0661-1212_
 
 *IKARHOLAZ FUNDRAISING*
-_part of Sistem Informasi Rholaz (SIR) © 2022_';
+_part of Sistem Informasi Rholaz (SIR)  2022_';
 
 $wablast = WaBlast::send($data->subject->phone, $message);
 

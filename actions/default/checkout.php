@@ -41,11 +41,11 @@ if(request() == 'POST')
 
     $detail_url = routeTo('default/transaction-detail',['id'=>$transaction->id],true);
     $message = '*IKARHOLAZ - FUNDRAISING*
--Notifikasi Tagihan Pembayaran kode *#'.$payment->Data->TransactionId.'*-
+_Notifikasi Tagihan Pembayaran *#'.$payment->Data->TransactionId.'*_
 
 Hai kak '.$_POST['subjects']['name'].'
 
-Terima kasih sudah berpartisipasi untuk program *"'.$data->name.'"* pada tanggal *'.date('d-m-Y H:i').'* dengan menggunakan metode pembayaran *'.$pg_requests['payment_method'].' - '.$pg_requests['payment_channel'].'*. Silahkan klik link dibawah ini untuk menyelesaikan pembayaran:
+Terima kasih sudah berpartisipasi dalam program *"'.$data->name.'"* pada tanggal *'.date('d-m-Y H:i').'* dengan menggunakan metode pembayaran *'.$pg_requests['payment_method'].' - '.$pg_requests['payment_channel'].'*. Silahkan klik link dibawah ini untuk menyelesaikan pembayaran:
 
 '.$detail_url.'
 
@@ -60,9 +60,9 @@ _Keterangan:_
 
 Terima kasih,
 *IKARHOLAZ FUNDRAISING*
+_part of Sistem Informasi Rholaz (SIR) 2022_
 
-Info ini hanya sebagai pemberitahuan. Mohon jangan di-reply dan abaikan jika sudah membayar. Jika ada pertanyaan silakan hubungi kami langsung di inbox@ikarholaz.com atau di +62 838-0661-1212
-';
+Info ini hanya sebagai pemberitahuan. Mohon tidak di-reply dan abaikan jika sudah membayar. Jika ada pertanyaan silakan hubungi langsung di inbox@ikarholaz.com atau di +62 838-0661-1212';
 
     WaBlast::send($_POST['subjects']['phone'], $message);
 
