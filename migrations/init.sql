@@ -91,7 +91,7 @@ CREATE TABLE donation_amounts (
 
 CREATE TABLE transactions (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    checkout_id INT NOT NULL,
+    checkout_id VARCHAR(45) NULL,
     subject_id INT NOT NULL,
     destination_id INT NOT NULL,
     destination_type VARCHAR(10) NOT NULL,
