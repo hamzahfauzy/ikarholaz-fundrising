@@ -1,66 +1,34 @@
-<table>
-    <tr>
-        <td width="370">
-            <img src="./assets/img/main-logo.png" width="60" height="60" alt=""><br>
-            <b>IKARHOLAZ</b>
-        </td>
-        <td width="370" style="text-align:right">
-            <h1 style="margin:0;">Invoice <br>#<?=$data->checkout_id?></h1>
-            <span><?=$data->created_at?></span>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <hr>
+<style>
+#bg{
+    margin-top: 0px;margin-left: 0px;
+    padding-top:130px;
+    height:86%;
+    background:url(./assets/img/bg-nota.jpg);
+    font-size:18px;
+}
+</style>
+<div id="bg">
+    <div style="width:100%;text-align:center">INVOICE</div>
+    <div  style="width:100%;text-align:center">#<?=$data->checkout_id?></div>
+    <div  style="width:100%;text-align:center;margin-bottom:15px"><?=_date($data->created_at)?></div>
 
-            <p>
-            Yth. <?=$data->subject->name?>,<br><br>
-            Terima kasih sudah melakukan pembayaran dan berpartisipasi untuk program "<?=$data->data->name?>". <br><br>
-            Berikut adalah rincian transaksi anda<br>
-            <br><br>
-            <table cellspacing="5" cellpadding="5" align="center">
-                <tr>
-                    <td>Metode Pembayaran</td>
-                    <td>: <?=$data->pg->Data->Channel.' ('.$data->pg->Data->Via.')'?></td>
-                </tr>
-                <tr>
-                    <td>Nomor Pembayaran</td>
-                    <td>: 
-                        <?php 
-                        if($data->pg->Data->Channel == 'QRIS') : 
-                            $filename = 'uploads/qr/'.$data->checkout_id.'.png';
-                            file_put_contents($filename,file_get_contents('https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl='.urlencode($data->pg->Data->PaymentNo).'&choe=UTF-8'));
-                            // $url = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl='.$data->pg->Data->PaymentNo.'&choe=UTF-8';
-                            // $data = file_get_contents($url);
-                            // $base64 = 'data:image/png;base64,' . base64_encode($data);
-                        ?>
-                            <img src="./<?=$filename?>" title="QRIS" />
-                        <?php else: ?>
-                            <?=$data->pg->Data->PaymentNo?>
-                        <?php endif ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Nama Pembayaran</td>
-                    <td>: <?=$data->pg->Data->PaymentName?></td>
-                </tr>
-                <tr>
-                <td>Total Pembayaran</td>
-                <td>: Rp. <?=number_format($data->pg->Data->Total)?></td>
-                </tr>
-                <?php if($data->status == 'checkout'): ?>
-                <tr>
-                    <td>Berlaku Sampai</td>
-                    <td>: <?=$data->pg->Data->Expired?></td>
-                </tr>
-                <?php elseif($data->status == 'confirm'): ?>
-                <tr>
-                    <td>Status</td>
-                    <td>: Pembayaran diterima</td>
-                </tr>
-                <?php endif ?>
-            </table>
-            </p>
-        </td>
-    </tr>
-</table>
+    <div  style="width:100%;text-align:center">Yth, <?= $data->subject?$data->subject->name:'Hamba Allah'?></div>
+    <div  style="width:100%;text-align:center">Terima kasih sudah melakukan pembayaran dan berpartisipasi untuk program </div>
+    <div  style="width:100%;text-align:center"><strong>"<?=$data->data->name?>"</strong></div>
+    <div  style="width:100%;text-align:center;margin-bottom:15px">Berikut adalah rincian transaksi donasi anda :</div>
+
+    <div  style="width:100%;text-align:center">Nama : <?= $data->subject?$data->subject->name:'Hamba Allah'?></div>
+    <div  style="width:100%;text-align:center">Tahun Lulus : <?=$data->subject?$data->subject->NRA:'-'?></div>
+    <div  style="width:100%;text-align:center">Email : <?= $data->subject?$data->subject->email:'-'?></div>
+    <div  style="width:100%;text-align:center">No. WA : <?= $data->subject?$data->subject->phone:'-'?></div>
+    <div  style="width:100%;text-align:center">Metode Pembayaran : <?= $data->pg->Data->Channel.' ('.$data->pg->Data->Via.')' ?></div>
+    <div  style="width:100%;text-align:center">Tanggal Transaksi : <?= _date($data->created_at) ?></div>
+    <div  style="width:100%;text-align:center">Tanggal Bayar : <?= _date($data->updated_at) ?></div>
+    <div  style="width:100%;text-align:center;margin-bottom:15px"><strong>Total Bayar : <?= number_format($data->amount) ?></strong></div>
+    <div  style="width:100%;text-align:center;margin-bottom:15px"></div>
+
+    <div  style="width:100%;text-align:center">Terbilang: </div>
+    <div  style="width:100%;text-align:center;margin-bottom:15px;font-style:italic;"><?= terbilang($data->amount) ?></div>
+    <div  style="width:100%;text-align:center;margin-bottom:15px"></div>
+    <div  style="width:100%;text-align:center">Semoga kebaikan Sdr/i <?= $data->subject?$data->subject->name:'Hamba Allah'?> diberikan balasan yang berlipat ganda. Amin.</div>
+</div>

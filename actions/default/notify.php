@@ -21,7 +21,8 @@ if(request() == 'POST')
         ]);
     
         $db->update('transactions',[
-            'status' => 'confirm'
+            'status' => 'confirm',
+            'updated_at' => date('Y-m-d H:i:s'),
         ],[
             'checkout_id' => $_POST['trx_id']
         ]);

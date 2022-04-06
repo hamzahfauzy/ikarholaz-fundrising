@@ -60,8 +60,14 @@ else
     ob_start();
     require 'transaction-detail-pdf.php';
     $html = ob_get_clean();
-    $html2pdf = new Html2Pdf();
+    // $html2pdf = new Html2Pdf();
+    $width_in_mm = 142.875; 
+    $height_in_mm = 254;
+    $html2pdf = new Html2Pdf('P', array($width_in_mm,$height_in_mm), 'en', true, 'UTF-8', array(0, 0, 0, 0));
+    $html2pdf->setDefaultFont("courier");
     $html2pdf->writeHTML($html);
-    // $html2pdf->output();
-    $html2pdf->output('fundrising-detail.pdf', 'D');
+    if(isset($_GET['render']))
+        $html2pdf->output();
+    else
+        $html2pdf->output('fundrising-detail.pdf', 'D');
 }
