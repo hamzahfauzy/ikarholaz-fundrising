@@ -26,7 +26,7 @@ if(!isset($_GET['type'])){
                 <label for="">Nomor Pembayaran</label>
                 '.($data->pg->Data->Channel == 'QRIS' ? '
                 <p class="text-center">
-                    <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=<?=$data->pg->Data->PaymentNo?>&choe=UTF-8" title="QRIS" />
+                    <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl='.$data->pg->Data->PaymentNo.'&choe=UTF-8" title="QRIS" />
                 </p>' : '
                 <p>'.$data->pg->Data->PaymentNo.'</p>').'
             </div>
