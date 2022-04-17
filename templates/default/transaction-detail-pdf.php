@@ -21,7 +21,9 @@
     <div  style="width:100%;text-align:center">Tahun Lulus : <?=$data->subject?$data->subject->NRA:'-'?></div>
     <div  style="width:100%;text-align:center">Email : <?= $data->subject?$data->subject->email:'-'?></div>
     <div  style="width:100%;text-align:center">No. WA : <?= $data->subject?$data->subject->phone:'-'?></div>
+    <?php if($data->pg): ?>
     <div  style="width:100%;text-align:center">Metode Pembayaran : <?= $data->pg->Data->Channel.' ('.$data->pg->Data->Via.')' ?></div>
+    <?php endif ?>
     <div  style="width:100%;text-align:center">Tanggal Transaksi : <?= _date($data->created_at) ?></div>
     <div  style="width:100%;text-align:center">Tanggal Bayar : <?= _date($data->updated_at) ?></div>
     <div  style="width:100%;text-align:center;margin-bottom:15px"><strong>Total Bayar : <?= number_format($data->amount) ?></strong></div>

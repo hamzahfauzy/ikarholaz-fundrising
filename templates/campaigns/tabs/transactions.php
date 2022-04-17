@@ -12,7 +12,7 @@
         </form>
         
         <div class="table-responsive table-hover table-sales">
-            <table class="table">
+            <table class="table datatable">
                 <thead>
                     <tr>
                         <th width="20px">#</th>

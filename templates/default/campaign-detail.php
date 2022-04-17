@@ -18,7 +18,7 @@
                     <?= html_entity_decode($campaign->description) ?>
                 </div>
                 <div class="tab-pane fade p-3" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                    <?php require 'campaign-tabs/donatur.php' ?>
+                    
                 </div>
                 <div class="tab-pane fade p-3" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                     <?php require 'campaign-tabs/info.php' ?>
@@ -50,4 +50,55 @@
             </div>
         </div>
     </div>
+    <script>
+    var page = 1;
+    var jenis = 'campaigns';
+    var id = <?=$_GET['id']?>;
+    var max_page = 100000;
+    function loadDonatur(nav = false)
+    {
+        if(nav == 'next') page = page == max_page ? max_page : page + 1;
+        if(nav == 'prev') page = page == 1 ? 1 : page - 1;
+        fetch('<?=routeTo()?>api/load-donatur&id='+id+'&jenis='+jenis+'&page='+page)
+        .then(res => res.json())
+        .then(res => {
+            document.querySelector('#nav-profile').innerHTML = ''
+            if(res.status == 'success')
+            {
+                res.data.data.forEach(d => {
+                    document.querySelector('#nav-profile').innerHTML += `
+                    <div class="row mt-3 mx-auto rounded bg-white shadow-sm">
+                        <div class="col p-4">
+                            <span>${d.created_at}</span>
+                            <h3>Rp. ${d.amount}</h3>
+                            <h4 class="primary-color">${d.subject.name}</h4>
+                        </div>
+                    </div>
+                    `
+                })
+
+                if(res.data.data.length == 0)
+                {
+                    document.querySelector('#nav-profile').innerHTML += `<center><i>Tidak ada data!</i></center>`
+                }
+
+                max_page = res.data.max_page
+
+            }
+
+            document.querySelector('#nav-profile').innerHTML += `
+            <div class="row mt-3 mx-auto rounded">
+            <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                ${page > 1 ? '<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="loadDonatur(\'prev\')">Previous</a></li>' : ''}
+                ${page < max_page ? '<li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="loadDonatur(\'next\')">Next</a></li>' : ''}
+            </ul>
+            </nav>
+            </div>
+            `
+        })
+    }
+
+    loadDonatur()
+    </script>
 <?php load_templates('layouts/default-bottom') ?>

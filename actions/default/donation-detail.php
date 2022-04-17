@@ -8,22 +8,6 @@ $donation = $db->single('donations',[
     'id' => $id
 ]);
 
-$transactions = $db->all('transactions',[
-    'destination_type' => 'donations',
-    'destination_id'   => $id,
-    'status'           => 'confirm'
-],[
-    'id' => 'DESC'
-]);
-
-$transactions = array_map(function($transaction) use ($db){
-    $transaction->subject = $db->single('subjects',[
-        'id' => $transaction->subject_id
-    ]);
-    return $transaction;
-}, $transactions);
-
-$donation->transactions = $transactions;
 $donation->posts = $db->all('posts',[
     'post_type'    => 'donations',
     'post_type_id' => $id,

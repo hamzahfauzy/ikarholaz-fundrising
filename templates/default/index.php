@@ -11,7 +11,7 @@
         <?php endif ?>
         <?php foreach($campaigns as $campaign): ?>
         <div class="col-md-4">
-            <?= require 'campaign-item.php' ?>
+            <?php require 'campaign-item.php' ?>
         </div>
         <?php endforeach ?>
     </div>
