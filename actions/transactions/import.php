@@ -20,13 +20,14 @@ if(request() == 'POST')
             'NRA' => $data[2]=='-'?'':$data[2],
         ]);
 
-        $checkout_id = '00'.$subject->id.strtotime('now');
+        // $checkout_id = '00'.$subject->id.strtotime('now');
 
         $db->insert('transactions',[
-            'checkout_id' => $checkout_id,
+            'checkout_id' => $data[6],
             'subject_id'  => $subject->id,
             'destination_id'  => $_POST['referensi'],
             'destination_type'  => $_POST['jenis'],
+            'pg_request' => serialize(['payment_method'=>$data[7],'payment_channel'=>'']),
             'amount'  => $data[5],
             'status'  => 'confirm',
             'updated_at'  => date('Y-m-d H:i:s'),

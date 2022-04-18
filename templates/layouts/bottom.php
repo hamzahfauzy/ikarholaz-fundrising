@@ -70,6 +70,28 @@
 		});
 
 		$('.datatable').dataTable();
+
+		var ss_datatable = $('.ss-datatable').DataTable( {
+			serverSide: true,
+			ajax: {
+				url: 'index.php?r=transactions/index',
+				type: 'GET'
+			}
+		} );
+
+		function deleteTransaction(id)
+		{
+			if(confirm('Apakah anda yakin akan menghapus data ini ?'))
+			{
+				fetch('index.php?r=transactions/delete&id='+id,{
+					headers: {'X-Requested-With': 'XMLHttpRequest'}
+				})
+				.then(res => res.json())
+				.then(res => {
+					ss_datatable.ajax.reload( null, false )
+				})
+			}
+		}
 	</script>
 </body>
 </html>

@@ -19,13 +19,14 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table datatable">
+                                <table class="table ss-datatable">
                                     <thead>
                                         <tr>
                                             <th>#</th>
                                             <th>Kode</th>
                                             <th>Waktu Transaksi</th>
                                             <th>Waktu Bayar</th>
+                                            <th>Metode Pembayaran</th>
                                             <th>Nama Lengkap</th>
                                             <th>Anonim</th>
                                             <th>No. WA</th>
@@ -34,34 +35,6 @@
                                             <th></th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <?php foreach($transactions as $index => $transaction): ?>
-                                        <tr>
-                                            <td><?=$index+1?></td>
-                                            <td><?=$transaction->checkout_id?></td>
-                                            <td><?=$transaction->created_at?></td>
-                                            <td><?=$transaction->updated_at?></td>
-                                            <td><?=$transaction->subject->name?></td>
-                                            <td><?=$transaction->subject->is_anonim?'Ya':'Tidak'?></td>
-                                            <td><?=$transaction->subject->phone?></td>
-                                            <td><?=number_format($transaction->amount)?></td>
-                                            <td>
-                                                <?php if($transaction->status == 'checkout'): ?>
-                                                <span class="badge badge-warning"><?=$transaction->status?></span>
-                                                <?php elseif($transaction->status == 'confirm'): ?>
-                                                <span class="badge badge-success"><?=$transaction->status?></span>
-                                                <?php endif ?>
-                                            </td>
-                                            <td>
-                                                <?php if($transaction->status == 'confirm'): ?>
-                                                <a href="<?=routeTo('transactions/resend',['id'=>$transaction->id])?>" class="btn btn-sm btn-success" title="Resend Notif"><i class="fas fa-redo"></i></a>
-                                                <?php endif ?>
-                                                <a href="<?=routeTo('default/transaction-detail',['id'=>$transaction->id,'type'=>'download'],1)?>" class="btn btn-sm btn-primary" title="Download Bukti"><i class="fas fa-download"></i></a>
-                                                <a href="<?=routeTo('transactions/delete',['id'=>$transaction->id])?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                                            </td>
-                                        </tr>
-                                        <?php endforeach ?>
-                                    </tbody>
                                 </table>
                             </div>
                         </div>

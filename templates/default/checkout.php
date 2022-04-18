@@ -50,7 +50,8 @@
                 </div>
             </div>
             <div class="form-group p-0 mb-3">
-                <input type="number" name="subjects[phone]" class="form-control" placeholder="No. WA, Format : 6281234xxxxx" required>
+                <input type="number" name="subjects[phone]" class="form-control" placeholder="No. WA" required>
+                <label for=""><small>(Tambahkan kode negara dan tanpa spasi, misal 62812xxxxxxxx)</small></label>
             </div>
             <div class="form-group p-0 mb-3">
                 <input type="email" name="subjects[email]" class="form-control" placeholder="Email" required>
