@@ -4,9 +4,11 @@
 <?php foreach($campaign->transactions as $transaction): ?>
 <div class="row mt-3 mx-auto rounded bg-white shadow-sm">
     <div class="col p-4">
-        <span><?=$transaction->created_at?></span>
-        <h3>Rp. <?=number_format($transaction->amount)?></h3>
-        <h4 class="primary-color"><?= $transaction->subject->is_anonim ? 'Hamba Allah' : $transaction->subject->name ?></h4>
+        <div class="flex">
+            <span><?= $transaction->subject->is_anonim ? 'Hamba Allah' : $transaction->subject->name ?></span>
+            <span><?=$transaction->created_at?></span>
+            <h3>Rp. <?=number_format($transaction->amount)?></h3>
+        </div>
     </div>
 </div>
 <?php endforeach ?>
