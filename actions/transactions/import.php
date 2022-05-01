@@ -30,6 +30,7 @@ if(request() == 'POST')
             'pg_requests' => serialize(['payment_method'=>$data[7],'payment_channel'=>'']),
             'amount'  => $data[5],
             'status'  => 'confirm',
+            'created_at'  => date('Y-m-d H:i:s', strtotime($data[8])),
             'updated_at'  => date('Y-m-d H:i:s'),
         ]);
     }
