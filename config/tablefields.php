@@ -67,5 +67,18 @@ return [
             'type' => 'textarea',
             'label' => 'Deskripsi',
         ],
+    ],
+    'posts' => [
+        'title' => [
+            'label' => 'Judul'
+        ],
+        'content' => [
+            'label' => 'Konten',
+            'type'  => 'textarea'
+        ],
+        'status' => [
+            'label' => 'Status',
+            'type'  => 'options:publish|draft'
+        ]
     ]
 ];

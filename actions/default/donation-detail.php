@@ -11,6 +11,7 @@ $donation = $db->single('donations',[
 $donation->posts = $db->all('posts',[
     'post_type'    => 'donations',
     'post_type_id' => $id,
+    'status' => 'publish',
 ],[
     'id' => 'DESC'
 ]);

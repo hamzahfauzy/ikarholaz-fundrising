@@ -32,7 +32,7 @@
 			<!-- Logo Header -->
 			<div class="logo-header" data-background-color="blue">
 				
-				<a href="index.php" class="logo text-white">
+				<a href="index.php?r=default/dashboard" class="logo text-white">
 					<?=app('name')?>
 				</a>
 				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">

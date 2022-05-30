@@ -56,7 +56,7 @@ if(isset($_GET['draw']))
             $transaction->checkout_id,
             $transaction->created_at,
             $transaction->updated_at,
-            $transaction->pg_requests ? $transaction->pg_requests->payment_method : '',
+            $transaction->pg_requests ? $transaction->pg_requests['payment_method'] : '',
             $transaction->name,
             $transaction->is_anonim?'Ya':'Tidak',
             $transaction->phone,

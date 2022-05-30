@@ -79,6 +79,12 @@
         </div>
         <?php endforeach ?>
         <?php endforeach ?>
+        <div class="col-12">
+            <label for="">Cash</label>
+        </div>
+        <div class="col-12 col-md-6 mb-2">
+            <button type="button" onclick="setPgRequest('cash','cash')" class="btn btn-secondary btn-block btn-pc">Cash</button>
+        </div>
     </div>
 
     <div class="row mt-3 mx-auto" style="max-width:500px;">

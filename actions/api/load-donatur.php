@@ -12,11 +12,11 @@ if(isset($_GET['jenis']))
     $offset= $page * $limit;
     $jenis = $_GET['jenis'];
 
-    $db->query = "SELECT COUNT(*) as TOTAL FROM transactions WHERE destination_type='$jenis' AND destination_id=$id";
+    $db->query = "SELECT COUNT(*) as TOTAL FROM transactions WHERE destination_type='$jenis' AND destination_id=$id AND status='confirm' ORDER BY transactions.id DESC";
     $total  = $db->exec('single');
     $max_page = ceil($total->TOTAL / $limit); 
 
-    $db->query = "SELECT * FROM transactions WHERE destination_type='$jenis' AND destination_id=$id LIMIT $offset, $limit";
+    $db->query = "SELECT * FROM transactions WHERE destination_type='$jenis' AND destination_id=$id AND status='confirm' ORDER BY transactions.id DESC LIMIT $offset, $limit";
     $transactions  = $db->exec('all');
 
     $transactions = array_map(function($transaction) use ($db){

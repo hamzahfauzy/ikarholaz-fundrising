@@ -11,6 +11,7 @@ $campaign = $db->single('campaigns',[
 $campaign->posts = $db->all('posts',[
     'post_type'    => 'campaigns',
     'post_type_id' => $id,
+    'status' => 'publish',
 ],[
     'id' => 'DESC'
 ]);

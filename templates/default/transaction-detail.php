@@ -43,12 +43,12 @@ if(!isset($_GET['type'])){
                 <label for="">Berlaku Sampai</label>
                 <p>'.$data->pg->Data->Expired.'</p>
             </div>' :
-            ($data->status == 'confirm') ? '
+            ($data->status == 'confirm' ? '
             <div class="form-group p-0 mb-3">
                 <label for="">Status</label>
                 <p>Pembayaran diterima</p>
             </div>
-            ' : '').'
+            ' : '')).'
 
             '.(!isset($_GET['type']) ? '<a href="'.routeTo('default/'.$data->destination_type,[],true).'" class="btn btn-block btn-warning">Kembali</a>' : '').'
         </div>

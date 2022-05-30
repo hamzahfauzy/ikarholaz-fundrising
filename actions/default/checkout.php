@@ -16,18 +16,41 @@ $data->amounts = $db->all($rel.'_amounts',[
 
 if(request() == 'POST')
 {
-    $ipaymu = new Ipaymu;
-    $payment = $ipaymu->directPayment([
-        'referenceId' => $data->id,
-        'name' => $data->name,
-        'subject' => $_POST['subjects'],
-        'payment_method' => $_POST['transactions']['pg_requests']['payment_method'],
-        'payment_channel' => $_POST['transactions']['pg_requests']['payment_channel'],
-        'amount' => $_POST['transactions']['amount']
-    ]);
-
     $subject = $db->insert('subjects',$_POST['subjects']);
     $pg_requests = $_POST['transactions']['pg_requests'];
+
+    if($pg_requests['payment_method'] == 'cash')
+    {
+        $unique_id = strtotime('now').rand(0,1000);
+        $payment = json_decode('{
+            "Status": 200,
+            "Message": "success",
+            "Data": {
+              "SessionId": "'.$unique_id.'",
+              "TransactionId": '.$unique_id.',
+              "ReferenceId": "'.$unique_id.'",
+              "Via": "CASH",
+              "Channel": "cash",
+              "PaymentNo": "'.$unique_id.'",
+              "PaymentName": "CASH",
+              "Total": '.$_POST['transactions']['amount'].',
+              "Fee": 0,
+              "Expired": "'.date('Y-m-d H:i:s', strtotime('+1 day')).'"
+            }
+        }');
+    }
+    else
+    {
+        $ipaymu = new Ipaymu;
+        $payment = $ipaymu->directPayment([
+            'referenceId' => $data->id,
+            'name' => $data->name,
+            'subject' => $_POST['subjects'],
+            'payment_method' => $pg_requests['payment_method'],
+            'payment_channel' => $pg_requests['payment_channel'],
+            'amount' => $_POST['transactions']['amount']
+        ]);
+    }
     $_POST['transactions']['checkout_id'] = $payment->Data->TransactionId;
     $_POST['transactions']['subject_id'] = $subject->id;
     $_POST['transactions']['destination_type'] = $type;
@@ -37,7 +60,7 @@ if(request() == 'POST')
     $_POST['transactions']['pg_response'] = serialize($payment);
     $transaction = $db->insert('transactions',$_POST['transactions']);
 
-    // print_r($payment);
+    $va = $payment->Data->Via == 'VA' ? '_Nomor VA_ : '. $payment->Data->PaymentNo : ($payment->Data->Via == 'CASH' ? 'Hubungi mimin untuk info/panduan pembayaran CASH.' :'');
 
     $detail_url = routeTo('default/transaction-detail',['id'=>$transaction->id],true);
     $message = '*IKARHOLAZ - FUNDRAISING*
@@ -50,6 +73,8 @@ Terima kasih sudah berpartisipasi dalam program *"'.$data->name.'"* pada tanggal
 '.$detail_url.'
 
 _Total Pembayaran_ *'.number_format($_POST['transactions']['amount']).'*
+
+'.$va.'
 
 _Jangan lewatkan kesempatan Anda menjadi #OrangBaik._
 _Kami berharap Anda dapat menyelesaikan pembayaran sebelum *'.$payment->Data->Expired.'*_

@@ -28,6 +28,8 @@ $transactions = $db->all('transactions',[
     'destination_type' => 'donations',
     'destination_id'   => $id,
     'status'           => 'confirm'
+],[
+    'id' => 'desc'
 ]);
 
 $transactions = array_map(function($transaction) use ($db){

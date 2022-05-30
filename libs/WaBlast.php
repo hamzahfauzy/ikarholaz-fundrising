@@ -5,6 +5,10 @@ class WaBlast
     
     static function send($to, $message, $file_url = '')
     {
+        if(config('WA_BLAST_PLATFORM') == 'fonnte')
+        {
+            return self::sendFonnte($to, $message);
+        }
         $curl = curl_init();
 
         if($to[0] == "0")
@@ -44,5 +48,37 @@ class WaBlast
         } else {
             return $response;
         }
+    }
+
+    static function sendFonnte($to, $message)
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://md.fonnte.com/api/send_message.php",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => array(
+                'phone' => $to,
+                'type' => 'text',
+                'text' => $message,
+                'delay' => '1',
+                'schedule' => '0'),
+            CURLOPT_HTTPHEADER => array(
+                "Authorization: ".config('WA_BLAST_DEVICE')
+            ),
+        ));
+
+        $response = curl_exec($curl);
+
+
+        curl_close($curl);
+        sleep(1); #do not delete!
+        return $response;
     }
 }
