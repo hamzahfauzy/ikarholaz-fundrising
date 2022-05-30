@@ -72,9 +72,10 @@
                     document.querySelector('#nav-profile').innerHTML += `
                     <div class="row mt-3 mx-auto rounded bg-white shadow-sm">
                         <div class="col p-4">
-                            <span>${d.created_at}</span>
-                            <h3>Rp. ${d.amount}</h3>
-                            <h4 class="primary-color">${d.subject.name}</h4>
+                            <div class="d-flex justify-content-between">
+                                <div class="font-weight-bold"><span class="text-primary">${d.subject.name}</span> - Rp. ${d.amount}</div>
+                                <div>${d.created_at}</div>
+                            </div>
                         </div>
                     </div>
                     `

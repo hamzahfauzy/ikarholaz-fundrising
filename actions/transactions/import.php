@@ -27,9 +27,10 @@ if(request() == 'POST')
             'subject_id'  => $subject->id,
             'destination_id'  => $_POST['referensi'],
             'destination_type'  => $_POST['jenis'],
-            'pg_request' => serialize(['payment_method'=>$data[7],'payment_channel'=>'']),
+            'pg_requests' => serialize(['payment_method'=>$data[7],'payment_channel'=>'']),
             'amount'  => $data[5],
             'status'  => 'confirm',
+            'created_at'  => date('Y-m-d H:i:s', strtotime($data[8])),
             'updated_at'  => date('Y-m-d H:i:s'),
         ]);
     }
