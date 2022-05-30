@@ -42,6 +42,7 @@ if(isset($_GET['draw']))
             $transaction->pg_requests = unserialize(html_entity_decode($transaction->pg_requests));
 
         $action = $transaction->status == 'confirm' ? '<a href="'.routeTo('transactions/resend',['id'=>$transaction->id]).'" class="btn btn-sm btn-success" title="Resend Notif"><i class="fas fa-redo"></i></a>' : '';
+        $action .= $transaction->pg_requests && $transaction->pg_requests['payment_method'] == 'cash' && $transaction->status == 'checkout' ? '<button data-id="'.$transaction->id.'" onclick="confirmTransaction('.$transaction->id.')" class="btn btn-sm btn-success btn-confirm" title="Konfirmasi"><i class="fas fa-check"></i></button>' : '';
         $action .= '<a href="'.routeTo('default/transaction-detail',['id'=>$transaction->id,'type'=>'download'],1).'" class="btn btn-sm btn-primary" title="Download Bukti"><i class="fas fa-download"></i></a>
             <button data-id="'.$transaction->id.'" onclick="deleteTransaction('.$transaction->id.')" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
         ';

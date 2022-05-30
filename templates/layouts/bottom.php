@@ -92,6 +92,20 @@
 				})
 			}
 		}
+
+		function confirmTransaction(id)
+		{
+			if(confirm('Apakah anda yakin akan mengkonfirmasi data ini ?'))
+			{
+				fetch('index.php?r=transactions/confirm&id='+id,{
+					headers: {'X-Requested-With': 'XMLHttpRequest'}
+				})
+				.then(res => res.json())
+				.then(res => {
+					ss_datatable.ajax.reload( null, false )
+				})
+			}
+		}
 	</script>
 </body>
 </html>
