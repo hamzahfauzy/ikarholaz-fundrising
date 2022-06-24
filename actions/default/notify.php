@@ -33,7 +33,7 @@ _Notifikasi Pembayaran SUKSES. Kode *#'.$data->pg->Data->TransactionId.'*_
 
 Hai kak '.$data->subject->name.'
 
-Terima kasih sudah berpartisipasi untuk program *"'.$data->data->name.'"* pada tanggal pada tanggal *'.$data->created_at.'* dengan menggunakan metode pembayaran *'.$data->pg->Data->Channel.' - '.$data->pg->Data->Via.'*.  TELAH BERHASIL.
+Terima kasih sudah berpartisipasi untuk program *"'.$data->data->name.'"* pada tanggal *'.$data->created_at.'* dengan menggunakan metode pembayaran *'.$data->pg->Data->Channel.' - '.$data->pg->Data->Via.'*.  TELAH BERHASIL.
 
 Pembayaran sejumlah *Rp. '.number_format($data->amount).'* telah kami terima. Klik '.$detail_url.' untuk mengunduh tanda terima pembayaran.
 
