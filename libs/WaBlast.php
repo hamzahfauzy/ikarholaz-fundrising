@@ -66,7 +66,7 @@ class WaBlast
         CURLOPT_POSTFIELDS => array(
         'target' => $to,
         'message' => $message,
-        'countryCode' => '0',
+        'countryCode' => '62',
         ),
         CURLOPT_HTTPHEADER => array(
             'Authorization: '.config('WA_BLAST_DEVICE')
