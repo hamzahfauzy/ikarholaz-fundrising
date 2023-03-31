@@ -55,7 +55,7 @@ class WaBlast
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://md.fonnte.com/api/send_message.php",
+            CURLOPT_URL => "https://api.fonnte.com/send",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
