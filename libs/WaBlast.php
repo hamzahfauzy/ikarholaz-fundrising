@@ -66,9 +66,6 @@ class WaBlast
         CURLOPT_POSTFIELDS => array(
         'target' => $to,
         'message' => $message,
-        'schedule' => '0',
-        'typing' => false,
-        'delay' => '2',
         'countryCode' => '0',
         ),
         CURLOPT_HTTPHEADER => array(
