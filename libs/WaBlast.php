@@ -72,7 +72,7 @@ class WaBlast
         'countryCode' => '0',
         ),
         CURLOPT_HTTPHEADER => array(
-            'Authorization: TOKEN'
+            'Authorization: '.config('WA_BLAST_DEVICE')
         ),
         ));
 
