@@ -29,8 +29,9 @@
                                     &nbsp;
                                     <select name="type" class="form-control">
                                         <option value="">- Tipe -</option>
-                                        <option value="campaigns" <?=isset($_GET['type']) && $_GET['type'] == 'campaigns' ? 'selected=""' : '' ?>>Kampanye</option>
-                                        <option value="donations" <?=isset($_GET['type']) && $_GET['type'] == 'donations' ? 'selected=""' : '' ?>>Donasi</option>
+                                        <?php foreach($types as $type): ?>
+                                        <option value="<?=$type->id?>" <?=isset($_GET['type']) && $_GET['type'] == $type->id ? 'selected=""' : '' ?>><?=(substr($type->id,0,2) == '2_' ? '(Donasi) ' : '(Kampanye)') . ' ' . $type->name?></option>
+                                        <?php endforeach ?>
                                     </select>
                                     &nbsp;
                                     <button name="tampil" class="btn btn-success">Tampilkan</button>
@@ -50,8 +51,8 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Transaksi</th>
                                             <th>Dari</th>
+                                            <th>Tahun Angkatan</th>
                                             <th>Jumlah</th>
                                             <th>Status</th>
                                         </tr>
@@ -60,11 +61,8 @@
                                         <?php foreach($transactions as $index => $transaction): ?>
                                         <tr>
                                             <td><?=$index+1?></td>
-                                            <td>
-                                                <?=$transaction->destination->name?><br>
-                                                <i><?=$transaction->destination_type == 'campaigns' ? 'Kampanye' : 'Donasi' ?></i>
-                                            </td>
                                             <td><?=$transaction->subject->is_anonim ? 'Hamba Allah' : $transaction->subject->name?></td>
+                                            <td><?=$transaction->subject->NRA?></td>
                                             <td><?=number_format($transaction->amount)?></td>
                                             <td>
                                                 <?php if($transaction->status == 'checkout'): ?>

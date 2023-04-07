@@ -1,25 +1,36 @@
 <?php
 
 $transactions = [];
+$campaigns = $db->all('campaigns');
+$donations = $db->all('donations');
+
+$campaigns = array_map(function($d){
+    $d->id = '1_'.$d->id;
+    return $d;
+}, $campaigns);
+
+$donations = array_map(function($d){
+    $d->id = '2_'.$d->id;
+    return $d;
+}, $donations);
+
+$types = array_merge($campaigns, $donations);
 
 if(
     isset($_GET['from']) && !empty($_GET['from']) &&
-    isset($_GET['to']) && !empty($_GET['to'])
+    isset($_GET['to']) && !empty($_GET['to']) &&
+    isset($_GET['type']) && !empty($_GET['type'])
 )
 {
     $conn = conn();
     $db   = new Database($conn);
     $transactions = $db->all('transactions');
 
-    if(isset($_GET['type']) && !empty($_GET['type']))
-    {
-        $db->query = "SELECT * FROM transactions WHERE destination_type='$_GET[type]' AND created_at BETWEEN '$_GET[from] 00:00:00' AND '$_GET[to] 23:59:59'";
-        $transactions = $db->exec('all');
-        // $transactions = $db->all('transactions',[
-        //     'destination_type' => $_GET['type'],
-        //     'created_at' => ['LIKE', '%'.$_GET['from'].'%']
-        // ]);
-    }
+    $destination_type = substr($_GET['type'],0,2);
+    $destination_id = substr($_GET['type'],2,1);
+
+    $db->query = "SELECT * FROM transactions WHERE destination_type='$destination_type' AND destination_id=$destination_id AND created_at BETWEEN '$_GET[from] 00:00:00' AND '$_GET[to] 23:59:59'";
+    $transactions = $db->exec('all');
 
     $transactions = array_map(function($transaction) use ($db) {
         $transaction->destination = $db->single($transaction->destination_type,[
@@ -33,4 +44,4 @@ if(
     }, $transactions);
 }
 
-return compact('transactions');
+return compact('transactions', 'types');
