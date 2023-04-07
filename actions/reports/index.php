@@ -13,9 +13,12 @@ if(
 
     if(isset($_GET['type']) && !empty($_GET['type']))
     {
-        $transactions = $db->all('transactions',[
-            'destination_type' => $_GET['type']
-        ]);
+        $db->query = "SELECT * FROM transactions WHERE destination_type=$_GET[type] AND created_at BETWEEN '$_GET[from] 00:00:00' AND '$_GET[to] 23:59:59'";
+        $transactions = $db->exec('all');
+        // $transactions = $db->all('transactions',[
+        //     'destination_type' => $_GET['type'],
+        //     'created_at' => ['LIKE', '%'.$_GET['from'].'%']
+        // ]);
     }
 
     $transactions = array_map(function($transaction) use ($db) {
