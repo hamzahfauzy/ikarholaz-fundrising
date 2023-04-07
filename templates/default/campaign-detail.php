@@ -38,7 +38,7 @@
                     <div class="row user-stats">
                         <div class="col">
                             <div class="progress progress-sm">
-                                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="<?=$campaign->total_transaction->total?>" aria-valuemin="0" aria-valuemax="<?=$campaign->amount_target?>" style="width:<?=ceil($campaign->total_transaction->total/$campaign->amount_target)?>%"></div>
+                                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="<?=$campaign->total_transaction->total?>" aria-valuemin="0" aria-valuemax="<?=$campaign->amount_target?>" style="width:<?=($campaign->total_transaction->total/$campaign->amount_target)*100?>%"></div>
                             </div>
                             <div class="number">Rp. <?=number_format($campaign->total_transaction->total)?></div>
                             <div class="title">Dana Terkumpul dari Rp. <?=number_format($campaign->amount_target)?></div>
