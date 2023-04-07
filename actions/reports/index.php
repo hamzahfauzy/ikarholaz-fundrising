@@ -28,7 +28,7 @@ if(
     
     $transactions = $db->all('transactions');
 
-    $destination_type = substr($_GET['type'],0,2);
+    $destination_type = substr($_GET['type'],0,2) == '1_' ? 'campaigns' : 'donations';
     $destination_id = substr($_GET['type'],2,1);
 
     $db->query = "SELECT * FROM transactions WHERE destination_type='$destination_type' AND destination_id=$destination_id AND created_at BETWEEN '$_GET[from] 00:00:00' AND '$_GET[to] 23:59:59'";
