@@ -62,7 +62,7 @@
                                         <?php foreach($transactions as $index => $transaction): ?>
                                         <tr>
                                             <td><?=$index+1?></td>
-                                            <td><?=$transaction->subject->is_anonim ? 'Hamba Allah' : $transaction->subject->name?></td>
+                                            <td><?=$transaction->subject->name?></td>
                                             <td><?=$transaction->subject->NRA?></td>
                                             <td><?=number_format($transaction->amount)?></td>
                                             <td>
