@@ -30,7 +30,7 @@
                                     <select name="type" class="form-control">
                                         <option value="">- Tipe -</option>
                                         <?php foreach($types as $type): ?>
-                                        <option value="<?=$type->id?>" <?=isset($_GET['type']) && $_GET['type'] == $type->id ? 'selected=""' : '' ?>><?=(substr($type->id,0,2) == '2_' ? '(Donasi) ' : '(Kampanye)') . ' ' . $type->name?></option>
+                                        <option value="<?=$type->id?>" <?=isset($_GET['type']) && $_GET['type'] == $type->id ? 'selected=""' : '' ?>><?=(substr($type->id,0,2) == '2_' ? 'Donasi' : 'Kampanye') . ' - ' . $type->name?></option>
                                         <?php endforeach ?>
                                     </select>
                                     &nbsp;
@@ -45,6 +45,7 @@
                                 <?php else: ?>
                                 <script>window.print()</script>
                                 <h1 align="center" style="margin:0;padding:0">LAPORAN KEUANGAN</h1>
+                                <h2 align="center" style="margin:0;padding:0"><?=isset($transaction[0]) ? ($transaction[0]->destination_type == 'donations' ? 'Donasi' : 'Kampanye').' - '.$transaction[0]->destination->name : ''?></h2>
                                 <p align="center"><?=$_GET['from']?> - <?=$_GET['to']?></p>
                                 <table border="1" cellpadding="5" cellspacing="0" width="100%">
                                 <?php endif ?>

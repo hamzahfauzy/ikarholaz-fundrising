@@ -42,6 +42,10 @@ if(
         $transaction->subject = $db->single('subjects',[
             'id' => $transaction->subject_id
         ]);
+        
+        $transaction->destination = $db->single($transaction->destination_type,[
+            'id' => $transaction->destination_id
+        ]);
         return $transaction;
     }, $transactions);
 }
