@@ -1,5 +1,8 @@
 <?php
 
+$conn = conn();
+$db   = new Database($conn);
+
 $transactions = [];
 $campaigns = $db->all('campaigns');
 $donations = $db->all('donations');
@@ -22,8 +25,7 @@ if(
     isset($_GET['type']) && !empty($_GET['type'])
 )
 {
-    $conn = conn();
-    $db   = new Database($conn);
+    
     $transactions = $db->all('transactions');
 
     $destination_type = substr($_GET['type'],0,2);
