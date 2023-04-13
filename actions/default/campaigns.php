@@ -3,7 +3,9 @@
 $conn = conn();
 $db   = new Database($conn);
 
-$campaigns = $db->all('campaigns');
+$campaigns = $db->all('campaigns',[],[
+    'id' => 'DESC'
+]);
 
 $campaigns = array_map(function($campaign) use ($db){
     $db->query = "SELECT SUM(amount) as total FROM transactions WHERE destination_type = 'campaigns' AND destination_id = $campaign->id AND status = 'confirm'";
